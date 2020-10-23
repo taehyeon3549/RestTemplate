@@ -18,7 +18,7 @@ headers.setContentType(MediaType.APPLICATION_JSON);
 
 HttpEntity<Object> entity = new HttpEntity(jsonObject.toString(), headers);
 
-String url = "http://192.168.1.135:12101/kac/kakao";
+String url = "####";
 
 Map<String,String> response = restTemplate.postForObject(url, entity, Map.class);
 
