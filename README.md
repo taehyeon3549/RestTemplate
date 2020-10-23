@@ -5,19 +5,21 @@ RestTemplate restTemplate = new RestTemplate();
 
 JsonObject jsonObject = new JsonObject();
 
-jsonObject.addProperty("sittnId", kakaoParm.getSittnId().toString());
-
-Map<String,String> parameters = new HashMap<>();
-parameters.put("sittnId", String.valueOf(kakaoParm.getSittnId()));
-
+jsonObject.addProperty("destPhone", kakaoParm.getDestPhone().toString());
+jsonObject.addProperty("info", kakaoParm.getInfo().toString());
+jsonObject.addProperty("msgBody", kakaoParm.getMsgBody().toString());
+jsonObject.addProperty("sendPhone", kakaoParm.getSendPhone().toString());
+jsonObject.addProperty("sender", kakaoParm.getSender().toString());
+jsonObject.addProperty("templateCode", kakaoParm.getTemplateCode().toString());
 
 HttpHeaders headers = new HttpHeaders();
 
 headers.setContentType(MediaType.APPLICATION_JSON);
 
-HttpEntity<String> entity = new HttpEntity<String>(jsonObject.toString(), headers);			
-  
-String url = "http://localhost:12100/kac/sittn";									
+HttpEntity<Object> entity = new HttpEntity(jsonObject.toString(), headers);
+
+String url = "http://192.168.1.135:12101/kac/kakao";
 
 Map<String,String> response = restTemplate.postForObject(url, entity, Map.class);
 
+log.info(response.toString());
