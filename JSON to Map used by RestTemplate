@@ -13,3 +13,15 @@ HttpEntity<String> request = new HttpEntity<String>(null, headers);
 String getVal = restTemplate.postForObject(EQKURL, request, String.class);
 
 Map<String, Object> eaws = convertJSONstringToMap(getVal);
+
+
+
+
+public static Map<String, Object> convertJSONstringToMap(String json) throws Exception {
+		ObjectMapper mapper = new ObjectMapper();
+		Map<String, Object> map = new HashMap<>();
+
+		map = (Map<String, Object>) mapper.readValue(json, Map.class);
+
+		return map;
+	}
