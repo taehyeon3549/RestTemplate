@@ -1,6 +1,7 @@
 # RestTemplate
 // 주의: Map 형태로 parameter를 보낼경우 형태가 맞지 않아 오류 발생 필히 JSON 형태로 만들어서 보낼것
 
+```java
 RestTemplate restTemplate = new RestTemplate();
 
 JsonObject jsonObject = new JsonObject();
@@ -23,3 +24,4 @@ String url = "####";
 Map<String,String> response = restTemplate.postForObject(url, entity, Map.class);
 
 log.info(response.toString());
+```
